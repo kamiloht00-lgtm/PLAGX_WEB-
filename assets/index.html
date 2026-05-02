@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PLAGXSOLUTIONS | Control Táctico de Plagas</title>
+    <!-- Frameworks y Fuentes -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -15,181 +16,226 @@
             --negro-profundo: #060b1a;
         }
 
-        body { font-family: 'Oswald', sans-serif; background-color: var(--negro-profundo); }
-        h1, h2, h3 { font-family: 'Bebas Neue', cursive; }
+        body { 
+            font-family: 'Oswald', sans-serif; 
+            background-color: var(--negro-profundo); 
+            color: #e5e7eb;
+        }
+        
+        h1, h2, h3, h4, h5 { font-family: 'Bebas Neue', cursive; }
         
         .text-gradient {
             background: linear-gradient(to right, var(--azul-electrico), var(--naranja-fuego));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .bg-hex {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cpath fill='%3C2a9fff' fill-opacity='0.05' d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9l11 6.35l11-6.35V30.1l-11 6.35L3 30.1V17.9z'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cpath fill='%232a9fff' fill-opacity='0.03' d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9l11 6.35l11-6.35V30.1l-11 6.35L3 30.1V17.9z'/%3E%3C/svg%3E");
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: var(--azul-electrico);
+            transform: translateY(-5px);
         }
     </style>
 </head>
-<body class="text-gray-200 selection:bg-[#2a9fff]">
+<body class="selection:bg-[#2a9fff] selection:text-white">
 
+    <!-- Fondo Decorativo -->
     <div class="fixed inset-0 bg-hex pointer-events-none"></div>
 
     <!-- NAVBAR -->
-    <div class="flex items-center gap-3">
-    <img src="logo-plagx.png" alt="PLAGXSOLUTIONS Logo" class="h-12 w-auto drop-shadow-[0_0_10px_rgba(42,159,255,0.5)]">
-    <div class="flex flex-col">
-        <span class="text-xl font-black tracking-wider text-white uppercase leading-none">PlagX</span>
-        <span class="text-[#2a9fff] text-xs font-bold tracking-[0.2em] uppercase">Solutions</span>
-    </div>
-</div>
+    <nav class="bg-[#060b1a]/95 backdrop-blur-xl sticky top-0 z-50 border-b border-[#2a9fff]/20">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+            <!-- Brand / Logo -->
+            <div class="flex items-center gap-4">
+                <img src="logo-plagx.png" alt="PLAGXSOLUTIONS" class="h-14 w-auto filter drop-shadow-[0_0_8px_rgba(42,159,255,0.6)]">
+                <div class="hidden sm:flex flex-col border-l border-white/20 pl-4">
+                    <span class="text-2xl font-black tracking-tighter text-white uppercase leading-none">PlagX</span>
+                    <span class="text-[#2a9fff] text-[10px] font-bold tracking-[0.3em] uppercase">Solutions</span>
+                </div>
+            </div>
+
+            <!-- Navegación -->
             <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest font-bold">
-                <a href="#servicios" class="hover:text-[#2a9fff]">Servicios</a>
-                <a href="#proceso" class="hover:text-[#2a9fff]">Proceso</a>
-                <a href="#testimonios" class="hover:text-[#2a9fff]">Clientes</a>
-                <a href="https://wa.me/573145210654" class="text-[#ff6a00]">314-521-0654</a>
+                <a href="#servicios" class="hover:text-[#2a9fff] transition-all">Servicios</a>
+                <a href="#proceso" class="hover:text-[#2a9fff] transition-all">Proceso</a>
+                <a href="#testimonios" class="hover:text-[#2a9fff] transition-all">Clientes</a>
+                <a href="https://wa.me/573145210654" class="text-[#ff6a00] hover:scale-105 transition-transform italic underline decoration-2 underline-offset-4">314-521-0654</a>
             </div>
         </div>
     </nav>
 
-    <!-- HERO -->
-    <header class="relative pt-24 pb-20 px-6 text-center overflow-hidden">
+    <!-- HERO SECTION -->
+    <header class="relative pt-32 pb-20 px-6 text-center overflow-hidden">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#2a9fff]/10 blur-[120px] rounded-full"></div>
-        <div class="relative z-10 max-w-4xl mx-auto">
-            <h2 class="text-[#ff6a00] font-bold tracking-[0.4em] uppercase mb-4">El Carmen de Viboral & Oriente</h2>
-            <h1 class="text-6xl md:text-9xl font-black text-white mb-6 leading-none italic">
+        <div class="relative z-10 max-w-5xl mx-auto">
+            <h2 class="text-[#ff6a00] font-bold tracking-[0.4em] uppercase mb-4 animate-pulse">Carmen de Viboral & Oriente Antioqueño</h2>
+            <h1 class="text-6xl md:text-9xl font-black text-white mb-6 leading-none italic uppercase">
                 ¿CANSADO DE <br><span class="text-gradient">LAS PLAGAS?</span>
             </h1>
-            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto font-light uppercase tracking-wide">
-                Soluciones tácticas, seguras y definitivas para tu hogar o negocio.
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto font-light uppercase tracking-widest">
+                Soluciones técnicas, seguras y definitivas para tu hogar, comercio o industria.
             </p>
-            <a href="https://wa.me/573145210654" class="inline-block bg-[#25d366] hover:bg-green-500 text-white px-12 py-5 rounded-full font-black text-2xl shadow-2xl transition-transform hover:scale-105">
-                COTIZA AHORA POR WHATSAPP
-            </a>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://wa.me/573145210654" class="inline-block bg-[#25d366] hover:bg-green-500 text-white px-10 py-5 rounded-full font-black text-xl shadow-[0_10px_30px_rgba(37,211,102,0.3)] transition-all hover:scale-105 uppercase">
+                    <i class="fab fa-whatsapp mr-2"></i> Cotiza por WhatsApp
+                </a>
+                <a href="#servicios" class="inline-block border border-white/20 hover:bg-white/5 text-white px-10 py-5 rounded-full font-black text-xl transition-all uppercase">
+                    Ver Servicios
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- PROPUESTA DE VALOR (3 BADGES) -->
-    <section class="py-16 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center p-8 bg-white/5 rounded-3xl border border-white/5">
-            <i class="fas fa-leaf text-[#25d366] text-5xl mb-4"></i>
-            <h3 class="text-2xl text-white mb-2">100% NO TÓXICO</h3>
-            <p class="text-gray-500">Seguro para niños, bebés y mascotas.</p>
-        </div>
-        <div class="text-center p-8 bg-white/5 rounded-3xl border border-white/5">
-            <i class="fas fa-crosshairs text-[#ff6a00] text-5xl mb-4"></i>
-            <h3 class="text-2xl text-white mb-2">ELIMINACIÓN COMPLETA</h3>
-            <p class="text-gray-500">Atacamos toda la colonia desde la raíz.</p>
-        </div>
-        <div class="text-center p-8 bg-white/5 rounded-3xl border border-white/5">
-            <i class="fas fa-shield-alt text-[#2a9fff] text-5xl mb-4"></i>
-            <h3 class="text-2xl text-white mb-2">GARANTÍA 30 DÍAS</h3>
-            <p class="text-gray-500">Si vuelven, nosotros volvemos sin costo.</p>
+    <!-- PROPUESTA DE VALOR -->
+    <section class="py-16 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card p-10 rounded-3xl text-center">
+                <i class="fas fa-leaf text-[#25d366] text-5xl mb-6"></i>
+                <h3 class="text-3xl text-white mb-3">100% NO TÓXICO</h3>
+                <p class="text-gray-500 uppercase text-sm tracking-widest">Seguro para tu familia y mascotas.</p>
+            </div>
+            <div class="glass-card p-10 rounded-3xl text-center">
+                <i class="fas fa-bullseye text-[#ff6a00] text-5xl mb-6"></i>
+                <h3 class="text-3xl text-white mb-3">ELIMINACIÓN TOTAL</h3>
+                <p class="text-gray-500 uppercase text-sm tracking-widest">Atacamos el problema desde la raíz.</p>
+            </div>
+            <div class="glass-card p-10 rounded-3xl text-center">
+                <i class="fas fa-file-signature text-[#2a9fff] text-5xl mb-6"></i>
+                <h3 class="text-3xl text-white mb-3">CERTIFICADO LEGAL</h3>
+                <p class="text-gray-500 uppercase text-sm tracking-widest">Garantía por escrito de 30 días.</p>
+            </div>
         </div>
     </section>
 
-    <!-- GRID 6 PLAGAS -->
-    <section id="servicios" class="py-20 px-6 max-w-7xl mx-auto">
-        <h2 class="text-5xl text-center text-white mb-16 italic tracking-tighter uppercase">PLAGAS QUE ELIMINAMOS</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-gray-900 p-8 rounded-2xl border-l-4 border-[#2a9fff] hover:bg-gray-800 transition-colors">
-                <i class="fas fa-bug text-3xl text-[#2a9fff] mb-4"></i>
-                <h4 class="text-xl font-bold text-white uppercase">Cucarachas</h4>
+    <!-- SERVICIOS (6 PLAGAS) -->
+    <section id="servicios" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-6xl text-white italic uppercase tracking-tighter">ESPECIALISTAS EN:</h2>
+            <div class="h-1 w-24 bg-[#ff6a00] mx-auto mt-4"></div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <!-- Repetir este bloque para cada plaga -->
+            <div class="glass-card p-6 rounded-2xl text-center group">
+                <i class="fas fa-bug text-3xl text-[#2a9fff] mb-3 group-hover:scale-125 transition-transform"></i>
+                <h4 class="text-sm font-bold text-white uppercase tracking-widest">Cucarachas</h4>
             </div>
-            <div class="bg-gray-900 p-8 rounded-2xl border-l-4 border-[#ff6a00] hover:bg-gray-800 transition-colors">
-                <i class="fas fa-mouse text-3xl text-[#ff6a00] mb-4"></i>
-                <h4 class="text-xl font-bold text-white uppercase">Ratas y Ratones</h4>
+            <div class="glass-card p-6 rounded-2xl text-center group">
+                <i class="fas fa-mouse text-3xl text-[#ff6a00] mb-3 group-hover:scale-125 transition-transform"></i>
+                <h4 class="text-sm font-bold text-white uppercase tracking-widest">Roedores</h4>
             </div>
-            <div class="bg-gray-900 p-8 rounded-2xl border-l-4 border-[#2a9fff] hover:bg-gray-800 transition-colors">
-                <i class="fas fa-bugs text-3xl text-[#2a9fff] mb-4"></i>
-                <h4 class="text-xl font-bold text-white uppercase">Hormigas</h4>
+            <div class="glass-card p-6 rounded-2xl text-center group">
+                <i class="fas fa-spider text-3xl text-[#2a9fff] mb-3 group-hover:scale-125 transition-transform"></i>
+                <h4 class="text-sm font-bold text-white uppercase tracking-widest">Arácnidos</h4>
             </div>
-            <div class="bg-gray-900 p-8 rounded-2xl border-l-4 border-[#ff6a00] hover:bg-gray-800 transition-colors">
-                <i class="fas fa-spider text-3xl text-[#ff6a00] mb-4"></i>
-                <h4 class="text-xl font-bold text-white uppercase">Pulgas y Garrapatas</h4>
+            <div class="glass-card p-6 rounded-2xl text-center group">
+                <i class="fas fa-mosquito text-3xl text-[#ff6a00] mb-3 group-hover:scale-125 transition-transform"></i>
+                <h4 class="text-sm font-bold text-white uppercase tracking-widest">Voladores</h4>
             </div>
-            <div class="bg-gray-900 p-8 rounded-2xl border-l-4 border-[#2a9fff] hover:bg-gray-800 transition-colors">
-                <i class="fas fa-mosquito text-3xl text-[#2a9fff] mb-4"></i>
-                <h4 class="text-xl font-bold text-white uppercase">Zancudos</h4>
+            <div class="glass-card p-6 rounded-2xl text-center group">
+                <i class="fas fa-bugs text-3xl text-[#2a9fff] mb-3 group-hover:scale-125 transition-transform"></i>
+                <h4 class="text-sm font-bold text-white uppercase tracking-widest">Hormigas</h4>
             </div>
-            <div class="bg-gray-900 p-8 rounded-2xl border-l-4 border-[#ff6a00] hover:bg-gray-800 transition-colors">
-                <i class="fas fa-house-damage text-3xl text-[#ff6a00] mb-4"></i>
-                <h4 class="text-xl font-bold text-white uppercase">Termitas</h4>
+            <div class="glass-card p-6 rounded-2xl text-center group">
+                <i class="fas fa-virus text-3xl text-[#ff6a00] mb-3 group-hover:scale-125 transition-transform"></i>
+                <h4 class="text-sm font-bold text-white uppercase tracking-widest">Desinfección</h4>
             </div>
         </div>
     </section>
 
     <!-- PROCESO DE TRABAJO -->
-    <section id="proceso" class="py-20 bg-white/5 px-6">
+    <section id="proceso" class="py-24 bg-white/5 px-6 border-y border-white/5">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-5xl text-center text-white mb-16 uppercase italic">PROCESO DE TRABAJO</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div class="text-center">
-                    <div class="text-4xl font-black text-[#2a9fff] mb-2">01</div>
-                    <h5 class="text-lg font-bold text-white">CONTACTO</h5>
+            <h2 class="text-5xl text-center text-white mb-16 uppercase italic tracking-widest">NUESTRO PROTOCOLO</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="relative text-center">
+                    <div class="text-7xl font-black text-white/10 absolute -top-10 left-1/2 -translate-x-1/2">01</div>
+                    <i class="fas fa-phone-alt text-[#2a9fff] text-2xl mb-4 relative z-10"></i>
+                    <h5 class="text-xl font-bold text-white uppercase relative z-10">Contacto Inmediato</h5>
                 </div>
-                <div class="text-center">
-                    <div class="text-4xl font-black text-[#ff6a00] mb-2">02</div>
-                    <h5 class="text-lg font-bold text-white">VISITA TÉCNICA</h5>
+                <div class="relative text-center">
+                    <div class="text-7xl font-black text-white/10 absolute -top-10 left-1/2 -translate-x-1/2">02</div>
+                    <i class="fas fa-search-location text-[#ff6a00] text-2xl mb-4 relative z-10"></i>
+                    <h5 class="text-xl font-bold text-white uppercase relative z-10">Inspección Técnica</h5>
                 </div>
-                <div class="text-center">
-                    <div class="text-4xl font-black text-[#2a9fff] mb-2">03</div>
-                    <h5 class="text-lg font-bold text-white">DIAGNÓSTICO</h5>
+                <div class="relative text-center">
+                    <div class="text-7xl font-black text-white/10 absolute -top-10 left-1/2 -translate-x-1/2">03</div>
+                    <i class="fas fa-flask text-[#2a9fff] text-2xl mb-4 relative z-10"></i>
+                    <h5 class="text-xl font-bold text-white uppercase relative z-10">Aplicación Controlada</h5>
                 </div>
-                <div class="text-center">
-                    <div class="text-4xl font-black text-[#ff6a00] mb-2">04</div>
-                    <h5 class="text-lg font-bold text-white">TRATAMIENTO</h5>
+                <div class="relative text-center">
+                    <div class="text-7xl font-black text-white/10 absolute -top-10 left-1/2 -translate-x-1/2">04</div>
+                    <i class="fas fa-clipboard-check text-[#ff6a00] text-2xl mb-4 relative z-10"></i>
+                    <h5 class="text-xl font-bold text-white uppercase relative z-10">Seguimiento Post</h5>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- TESTIMONIOS -->
-    <section id="testimonios" class="py-20 px-6 max-w-7xl mx-auto text-center">
-        <h2 class="text-5xl text-white mb-16 uppercase italic">LO QUE DICEN NUESTROS CLIENTES</h2>
+    <section id="testimonios" class="py-24 px-6 max-w-7xl mx-auto text-center">
+        <h2 class="text-5xl text-white mb-16 uppercase italic">CLIENTES SATISFECHOS</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-gray-900 p-10 rounded-3xl italic text-gray-400">
+            <div class="glass-card p-12 rounded-3xl italic text-gray-400 relative">
+                <i class="fas fa-quote-left text-white/10 text-6xl absolute top-6 left-6"></i>
                 "Excelente servicio en Rionegro. Las cucarachas desaparecieron en la primera visita."
-                <div class="mt-4 text-[#2a9fff] font-bold">- Carlos M. (Rionegro)</div>
+                <div class="mt-6 text-[#2a9fff] font-bold tracking-widest uppercase not-italic">Carlos M. - Rionegro</div>
             </div>
-            <div class="bg-gray-900 p-10 rounded-3xl italic text-gray-400">
-                "Muy profesionales y el producto no huele a nada. Seguro para mi bebé."
-                <div class="mt-4 text-[#ff6a00] font-bold">- Elena R. (Carmen de Viboral)</div>
+            <div class="glass-card p-12 rounded-3xl italic text-gray-400 relative">
+                <i class="fas fa-quote-left text-white/10 text-6xl absolute top-6 left-6"></i>
+                "Muy profesionales y el producto no huele a nada. Seguro para mi familia."
+                <div class="mt-6 text-[#ff6a00] font-bold tracking-widest uppercase not-italic">Elena R. - Carmen de V.</div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER COMPLETO -->
-    <footer class="bg-black py-20 px-6 border-t border-white/10">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-sm">
+    <!-- FOOTER -->
+    <footer class="bg-black py-24 px-6 border-t border-white/10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
             <div>
-                <h4 class="text-2xl font-black text-white uppercase italic mb-6">PlagX<span class="text-[#2a9fff]">Solutions</span></h4>
-                <p class="text-gray-500">Control profesional desde El Carmen de Viboral para todo el Oriente Antioqueño.</p>
+                <h4 class="text-3xl font-black text-white uppercase italic mb-6">PlagX<span class="text-[#2a9fff]">Solutions</span></h4>
+                <p class="text-gray-500 leading-relaxed">Expertos en control integrado de plagas. Tecnología y seguridad para el Oriente Antioqueño.</p>
             </div>
             <div>
-                <h5 class="text-[#2a9fff] font-bold mb-4 uppercase tracking-widest">Contacto</h5>
-                <p>📲 314-521-0654</p>
-                <p>📍 El Carmen de Viboral, Antioquia</p>
-                <p>⏰ Lun - Sáb: 7am - 6pm</p>
+                <h5 class="text-[#2a9fff] font-bold mb-6 uppercase tracking-[0.3em] text-xs">Directorio</h5>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li><i class="fas fa-phone-alt text-[#ff6a00] mr-2"></i> 314-521-0654</li>
+                    <li><i class="fas fa-map-marker-alt text-[#ff6a00] mr-2"></i> Carmen de Viboral, Antioquia</li>
+                    <li><i class="fas fa-clock text-[#ff6a00] mr-2"></i> L-S: 7am - 6pm</li>
+                </ul>
             </div>
             <div>
-                <h5 class="text-[#2a9fff] font-bold mb-4 uppercase tracking-widest">Cobertura</h5>
-                <p class="text-gray-500">El Carmen · Marinilla · Santuario · Rionegro · La Ceja · Guarne.</p>
+                <h5 class="text-[#2a9fff] font-bold mb-6 uppercase tracking-[0.3em] text-xs">Cobertura</h5>
+                <p class="text-sm text-gray-400 leading-loose">
+                    El Carmen · Marinilla · Santuario · Rionegro · La Ceja · Guarne · El Retiro.
+                </p>
             </div>
             <div>
-                <h5 class="text-[#ff6a00] font-bold mb-4 uppercase tracking-widest">Síguenos</h5>
-                <div class="flex gap-6 text-2xl">
-                    <i class="fab fa-instagram hover:text-[#2a9fff] cursor-pointer"></i>
-                    <i class="fab fa-facebook hover:text-[#2a9fff] cursor-pointer"></i>
-                    <i class="fab fa-tiktok hover:text-[#2a9fff] cursor-pointer"></i>
+                <h5 class="text-[#ff6a00] font-bold mb-6 uppercase tracking-[0.3em] text-xs">Social Hub</h5>
+                <div class="flex gap-6 text-2xl mb-6">
+                    <a href="#" class="hover:text-[#2a9fff] transition-colors"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-[#2a9fff] transition-colors"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-[#2a9fff] transition-colors"><i class="fab fa-tiktok"></i></a>
                 </div>
-                <p class="mt-4 text-gray-600">@PLAGXSOLUTIONS</p>
+                <p class="text-[10px] text-gray-600 uppercase tracking-widest">@PLAGXSOLUTIONS</p>
             </div>
         </div>
-        <div class="text-center mt-20 text-gray-700 text-[10px] uppercase tracking-[0.5em]">
-            © 2026 PLAGXSOLUTIONS | DESARROLLADO POR KAMILO HENAO DEV
+        <div class="text-center mt-24 text-gray-800 text-[9px] uppercase tracking-[0.8em] font-bold">
+            © 2026 PLAGXSOLUTIONS | ENGINEERED BY KAMILO HENAO DEV
         </div>
     </footer>
 
     <!-- WHATSAPP FLOATING -->
-    <a href="https://wa.me/573145210654" class="fixed bottom-8 right-8 bg-[#25d366] text-white w-20 h-20 rounded-full flex items-center justify-center text-4xl shadow-2xl z-50 hover:scale-110 transition-all animate-bounce">
+    <a href="https://wa.me/573145210654" class="fixed bottom-10 right-10 bg-[#25d366] text-white w-20 h-20 rounded-full flex items-center justify-center text-4xl shadow-[0_15px_40px_rgba(37,211,102,0.4)] z-50 hover:scale-110 transition-all animate-bounce">
         <i class="fab fa-whatsapp"></i>
     </a>
 
